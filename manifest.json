@@ -1,0 +1,49 @@
+{
+    "name": "ImgOpti - Image Optimizer",
+    "short_name": "ImgOpti",
+    "description": "Free client-side image optimizer. Resize, compress, convert images directly in your browser.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#101922",
+    "theme_color": "#0d7ff2",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230d7ff2' width='192' height='192' rx='32'/><text x='96' y='130' font-size='100' text-anchor='middle' fill='white'>📷</text></svg>",
+            "sizes": "192x192",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
+        {
+            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%230d7ff2' width='512' height='512' rx='80'/><text x='256' y='350' font-size='280' text-anchor='middle' fill='white'>📷</text></svg>",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["utilities", "photo"],
+    "screenshots": [],
+    "shortcuts": [
+        {
+            "name": "Optimize Images",
+            "url": "/",
+            "description": "Start optimizing images"
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "share_target": {
+        "action": "/",
+        "method": "POST",
+        "enctype": "multipart/form-data",
+        "params": {
+            "files": [
+                {
+                    "name": "images",
+                    "accept": ["image/jpeg", "image/png", "image/webp", "image/gif"]
+                }
+            ]
+        }
+    }
+}
