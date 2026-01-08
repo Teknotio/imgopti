@@ -1,0 +1,321 @@
+/* ImgOpti - Custom Styles */
+
+/* Base styles */
+body {
+    min-height: max(884px, 100dvh);
+}
+
+/* Screen transitions */
+.screen {
+    transition: opacity 0.2s ease-out;
+}
+
+.screen.hidden {
+    display: none;
+}
+
+/* Drag and drop active state */
+#drop-zone.drag-active {
+    border-color: #0d7ff2 !important;
+    background-color: rgba(13, 127, 242, 0.05) !important;
+}
+
+#drop-zone.drag-active .bg-primary\/10 {
+    transform: scale(1.1);
+}
+
+/* Custom range slider styling */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Track - Webkit (Chrome, Safari, Edge) */
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 8px;
+    border-radius: 9999px;
+    background: linear-gradient(to right,
+        #0d7ff2 0%,
+        #0d7ff2 var(--range-progress, 80%),
+        #e5e7eb var(--range-progress, 80%),
+        #e5e7eb 100%);
+}
+
+.dark input[type="range"]::-webkit-slider-runnable-track {
+    background: linear-gradient(to right,
+        #0d7ff2 0%,
+        #0d7ff2 var(--range-progress, 80%),
+        #374151 var(--range-progress, 80%),
+        #374151 100%);
+}
+
+/* Thumb - Webkit */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #0d7ff2;
+    border: 3px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    margin-top: -6px;
+    transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(0.95);
+}
+
+/* Track - Firefox */
+input[type="range"]::-moz-range-track {
+    height: 8px;
+    border-radius: 9999px;
+    background: #e5e7eb;
+}
+
+.dark input[type="range"]::-moz-range-track {
+    background: #374151;
+}
+
+/* Progress - Firefox */
+input[type="range"]::-moz-range-progress {
+    height: 8px;
+    border-radius: 9999px;
+    background: #0d7ff2;
+}
+
+/* Thumb - Firefox */
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #0d7ff2;
+    border: 3px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    transform: scale(1.1);
+}
+
+/* Focus states */
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 4px rgba(13, 127, 242, 0.2), 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+    box-shadow: 0 0 0 4px rgba(13, 127, 242, 0.2), 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* File item styles */
+.file-item {
+    animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Result item styles */
+.result-item {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Toast animations */
+.toast {
+    animation: toastIn 0.3s ease-out;
+    pointer-events: auto;
+}
+
+.toast.toast-out {
+    animation: toastOut 0.3s ease-out forwards;
+}
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toastOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* Processing overlay animation */
+#processing-overlay {
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* Aspect ratio lock active state */
+#btn-aspect-lock.locked {
+    background-color: rgba(13, 127, 242, 0.2);
+}
+
+#btn-aspect-lock.locked .material-symbols-outlined {
+    font-variation-settings: 'FILL' 1;
+}
+
+/* Button loading state */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: 2px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Image thumbnail in file list */
+.file-thumbnail {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Number input - hide spinners */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Unit toggle active state */
+#btn-unit-px.active,
+#btn-unit-percent.active {
+    background: white;
+    color: #0d7ff2;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.dark #btn-unit-px.active,
+.dark #btn-unit-percent.active {
+    background: #2C2C2E;
+}
+
+/* Checkbox custom styling */
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #0d7ff2;
+    border-color: #0d7ff2;
+}
+
+/* Error state for file items */
+.file-item.error {
+    border-color: #ef4444 !important;
+    background-color: rgba(239, 68, 68, 0.05) !important;
+}
+
+.file-item.error .file-status {
+    color: #ef4444;
+}
+
+/* Success state for file items */
+.file-item.success .file-status {
+    color: #22c55e;
+}
+
+/* Prevent text selection on buttons */
+button {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Safe area insets for mobile */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .fixed.bottom-0 {
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    }
+}
